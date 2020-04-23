@@ -12,10 +12,18 @@ public class ImageTarget : ScriptableObject
 {
     public Texture2D rawtex;
 
+    GameObject container;
+
     public RawImage rawImage;
     public RawImage imageTarget;
     XRReferenceImageLibrary thisLibrary;
 
+    void Start()
+    {
+        var manager = container.AddComponent<ARTrackedImageManager>();
+        manager.referenceLibrary = thisLibrary;
+        manager.enabled = true;
+    }
     public void AddImageTarget(RawImage newImage)
     {
 
