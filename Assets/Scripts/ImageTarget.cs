@@ -27,7 +27,7 @@ public class ImageTarget : ScriptableObject
     public void AddImageTarget(RawImage newImage)
     {
         ARTrackedImage aRTrackedImage;
-        aRTrackedImage.referenceImage = rawImage; 
+       // aRTrackedImage.referenceImage = rawImage; 
         XRReferenceImage imageR;
       //  imageR.texture = rawImage.texture; 
 
