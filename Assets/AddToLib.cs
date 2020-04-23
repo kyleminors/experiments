@@ -10,7 +10,7 @@ public class AddToLib : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+   
     }
 
     // Update is called once per frame
@@ -22,8 +22,8 @@ public class AddToLib : MonoBehaviour
 
     void AssignImage(XRReferenceImage image)
     {
-        var library = trackedImageManager.CreateRuntimeLibrary();
-        if (library is MutableRuntimeReferenceImageLibrary mutableLibrary)
+        //var library = library.CreateRuntimeLibrary();
+       // if (library is MutableRuntimeReferenceImageLibrary mutableLibrary)
         {
             // add images to mutableLibrary
         }
