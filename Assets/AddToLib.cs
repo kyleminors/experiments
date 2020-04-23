@@ -22,7 +22,11 @@ public class AddToLib : MonoBehaviour
 
     void AssignImage(XRReferenceImage image)
     {
-       XRReferenceImageLibrary ril = gameObject.GetComponent<XRReferenceImageLibrary>();
-       
+        var library = trackedImageManager.CreateRuntimeLibrary();
+        if (library is MutableRuntimeReferenceImageLibrary mutableLibrary)
+        {
+            // add images to mutableLibrary
+        }
+
     }
 }

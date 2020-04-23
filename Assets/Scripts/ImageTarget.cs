@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using System.IO;
+using Unity.Jobs;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ImageTarget", order = 1)]
 
@@ -23,14 +21,18 @@ public class ImageTarget : ScriptableObject
         var manager = container.AddComponent<ARTrackedImageManager>();
         manager.referenceLibrary = thisLibrary;
         manager.enabled = true;
+
+        
     }
+
     public void AddImageTarget(RawImage newImage)
     {
-        ARTrackedImage aRTrackedImage;
-       // aRTrackedImage.referenceImage = rawImage; 
-        XRReferenceImage imageR;
-      //  imageR.texture = rawImage.texture; 
-
+        var manager = container.GetComponent<ARTrackedImageManager>();
+        var library = manager.CreateRuntimeLibrary();
+        if (library is MutableRuntimeReferenceImageLibrary mutableLibrary)
+        {
+            ScheduleAddImageJob(library, rawtex, string name, 1, JobHandle inputDeps = null)
+        }
     }
 
 }
