@@ -9,7 +9,9 @@ using UnityEngine.XR.ARSubsystems;
 using Unity.Burst;
 using Unity.Jobs;
 
-public class SaveImage : MonoBehaviour
+
+
+public class  SaveImage : MonoBehaviour
 {
     public RawImage rawImageUI;
     public Canvas canvas;
@@ -41,6 +43,10 @@ public class SaveImage : MonoBehaviour
         text.text = "Texture assigned";
         CreateLibrary();
         text.text = "Library created";
+    }
+    public static JobHandle ScheduleAddImageJob(this MutableRuntimeReferenceImageLibrary library, Texture2D texture, string name, float? widthInMeters)
+    {
+        return ScheduleAddImageJob(library, texture, name, widthInMeters);
     }
 
     IEnumerator Capture()
@@ -83,7 +89,7 @@ public class SaveImage : MonoBehaviour
         yield return new WaitForSeconds(5);
         text.text = "Image added 1";
 
-        library.ScheduleAddImageJob(tex, "newTarget", 1);
+        
 
         text.text = "Image added 2";
 
