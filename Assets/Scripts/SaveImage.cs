@@ -19,6 +19,7 @@ public class  SaveImage : MonoBehaviour
     public ImageTarget imageTarget;
     public Texture2D tex;
     public Texture2D rawtex;
+    public Texture2D egTex;
 
     public GameObject arSession;
 
@@ -30,7 +31,6 @@ public class  SaveImage : MonoBehaviour
     
     void Update()
     {
-        rawImageUI.texture = tex;
        
     }
 
@@ -68,12 +68,16 @@ public class  SaveImage : MonoBehaviour
     {
         text.text = "1";
         var manager = arSession.AddComponent<ARTrackedImageManager>();
+        manager.trackedImagePrefab = demoPrefab; 
+        manager.trackedImagePrefab = arSession.AddComponent<ARTrackedImageManager>().trackedImagePrefab;
+
+
         text.text = "2";
         library = (MutableRuntimeReferenceImageLibrary)manager.CreateRuntimeLibrary();
+        
         manager.enabled = true;
         text.text = "3";
 
-        manager.trackedImagePrefab = demoPrefab;
         text.text = "manager and prefab created and assigned";
         AddImageTarget();
         text.text = "target added";
@@ -85,8 +89,7 @@ public class  SaveImage : MonoBehaviour
 
         text.text = "Image added 1";
 
-        MutableRuntimeReferenceImageLibraryExtensions.ScheduleAddImageJob(library, tex, "new image", 1.0f);
-
+        MutableRuntimeReferenceImageLibraryExtensions.ScheduleAddImageJob(library, egTex, "new image", 1.0f);
         text.text = "Image added 2";
 
     }

@@ -156,10 +156,12 @@ MonoBehaviour:
   imageTarget: {fileID: 11400000, guid: 056a9ed83131f4dfcb93326be0672452, type: 2}
   tex: {fileID: 0}
   rawtex: {fileID: 0}
+  egTex: {fileID: 2800000, guid: 54258762e5d984ec982aa51bb5a3584d, type: 3}
   arSession: {fileID: 941953016}
   demoPrefab: {fileID: 8898605831840560459, guid: 17935f7afd440404c977442ba94892f0,
     type: 3}
   rawImage: {fileID: 0}
+  library2: {fileID: 0}
 --- !u!4 &176351112
 Transform:
   m_ObjectHideFlags: 0
@@ -1028,7 +1030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897413562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1408.6, y: 980, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 941953018}
