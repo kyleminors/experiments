@@ -80,13 +80,12 @@ public class  SaveImage : MonoBehaviour
 
     }
 
-    IEnumerator AddImageTarget()
+    void AddImageTarget()
     {
 
-        yield return new WaitForSeconds(5);
         text.text = "Image added 1";
 
-        ScheduleAddImageJob(library, tex, "new image", 1.0f);
+        MutableRuntimeReferenceImageLibraryExtensions.ScheduleAddImageJob(library, tex, "new image", 1.0f);
 
         text.text = "Image added 2";
 

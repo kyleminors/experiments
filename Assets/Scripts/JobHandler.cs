@@ -12,9 +12,9 @@ using Unity.Jobs;
 
 public static class JobHandler
 {
-    public static JobHandle ScheduleAddImageJob(this MutableRuntimeReferenceImageLibrary library, Texture2D texture, string name, float? widthInMeters)
-    {
-        return ScheduleAddImageJob(library, texture, name, widthInMeters);
-    }
+    //public static JobHandle ScheduleAddImageJob(this MutableRuntimeReferenceImageLibrary library, Texture2D texture, string name, float? widthInMeters)
+    //{
+    //    return ScheduleAddImageJob(library, texture, name, widthInMeters);
+    //}
 }
 
