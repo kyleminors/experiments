@@ -154,6 +154,7 @@ MonoBehaviour:
   canvas: {fileID: 1146159920}
   text: {fileID: 1817445700}
   imageTarget: {fileID: 11400000, guid: 056a9ed83131f4dfcb93326be0672452, type: 2}
+  tex: {fileID: 0}
   rawtex: {fileID: 0}
   arSession: {fileID: 941953016}
   demoPrefab: {fileID: 8898605831840560459, guid: 17935f7afd440404c977442ba94892f0,
@@ -408,8 +409,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1429.3, y: 1405}
-  m_SizeDelta: {x: 497, y: 436.1}
+  m_AnchoredPosition: {x: 859.01, y: 1390}
+  m_SizeDelta: {x: 298.7, y: 436.1}
   m_Pivot: {x: 3.375829, y: 1.9286225}
 --- !u!114 &393810527
 MonoBehaviour:

@@ -15,7 +15,7 @@ public class SaveImage : MonoBehaviour
     public Canvas canvas;
     public Text text; 
     public ImageTarget imageTarget;
-    Texture2D tex;
+    public Texture2D tex;
     public Texture2D rawtex;
 
     public GameObject arSession;
@@ -23,10 +23,13 @@ public class SaveImage : MonoBehaviour
     public GameObject demoPrefab;
     public RawImage rawImage;
     public MutableRuntimeReferenceImageLibrary library;
+    public XRReferenceImageLibrary library2;
 
+    
     void Update()
     {
-        rawImageUI.texture = tex; 
+        rawImageUI.texture = tex;
+       
     }
 
     public void DoCapture()
@@ -38,7 +41,6 @@ public class SaveImage : MonoBehaviour
         text.text = "Texture assigned";
         CreateLibrary();
         text.text = "Library created";
-
     }
 
     IEnumerator Capture()
@@ -52,9 +54,10 @@ public class SaveImage : MonoBehaviour
         tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         tex.Apply();
 
-       // byte[] bytes = tex.EncodeToPNG();
         
-      //  File.WriteAllBytes(Application.dataPath + "/../newImageTrack.png", bytes);       
+        // byte[] bytes = tex.EncodeToPNG();
+
+        //  File.WriteAllBytes(Application.dataPath + "/../newImageTrack.png", bytes);       
     }
 
 
@@ -69,20 +72,20 @@ public class SaveImage : MonoBehaviour
 
         manager.trackedImagePrefab = demoPrefab;
         text.text = "manager and prefab created and assigned";
-        AddImageTarget(rawtex);
+        AddImageTarget();
         text.text = "target added";
 
     }
 
-    public void AddImageTarget(Texture2D newTarget)
+    IEnumerator AddImageTarget()
     {
 
+        yield return new WaitForSeconds(5);
         text.text = "Image added 1";
 
-        library.ScheduleAddImageJob(newTarget, "newTarget", 1);
+        library.ScheduleAddImageJob(tex, "newTarget", 1);
 
         text.text = "Image added 2";
-
 
     }
 
