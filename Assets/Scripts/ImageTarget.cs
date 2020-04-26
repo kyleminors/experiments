@@ -12,36 +12,33 @@ using Unity.Jobs;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ImageTarget", order = 1)]
 
-public class ImageTarget : ScriptableObject
+public class ImageTarget : MonoBehaviour
 {
     public Texture2D rawtex;
 
-    GameObject container;
+    public GameObject arSession;
 
     public RawImage rawImage;
     public RawImage imageTarget;
-    XRReferenceImageLibrary thisLibrary;
+    public MutableRuntimeReferenceImageLibrary library;
 
     void Start()
     {
-        var manager = container.AddComponent<ARTrackedImageManager>();
-        manager.referenceLibrary = thisLibrary;
+        var manager = arSession.AddComponent<ARTrackedImageManager>();
+        library = (MutableRuntimeReferenceImageLibrary)manager.CreateRuntimeLibrary();
         manager.enabled = true;
 
-        
+        AddImageTarget(rawtex); 
     }
 
-    public void AddImageTarget(RawImage newImage)
+    public void AddImageTarget(Texture2D newTarget)
     {
-        var manager = container.GetComponent<ARTrackedImageManager>();
-        var library = (MutableRuntimeReferenceImageLibrary)manager.CreateRuntimeLibrary();
         
-        if (library is MutableRuntimeReferenceImageLibrary mutableLibrary)
-        {
+        
 
-           library.ScheduleAddImageJob(rawtex, "newTarget", 1);
+           library.ScheduleAddImageJob(newTarget, "newTarget", 1);
 
-        }
+        
     }
 
     

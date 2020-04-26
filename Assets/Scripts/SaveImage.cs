@@ -14,10 +14,9 @@ public class SaveImage : MonoBehaviour
 
     void Update()
     {
-        rawImageUI.texture = imageTarget.rawtex; 
-    }
 
-    
+
+    }
 
     public void DoCapture()
     {
