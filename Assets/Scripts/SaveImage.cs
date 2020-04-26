@@ -44,10 +44,7 @@ public class  SaveImage : MonoBehaviour
         CreateLibrary();
         text.text = "Library created";
     }
-    public static JobHandle ScheduleAddImageJob(this MutableRuntimeReferenceImageLibrary library, Texture2D texture, string name, float? widthInMeters)
-    {
-        return ScheduleAddImageJob(library, texture, name, widthInMeters);
-    }
+    
 
     IEnumerator Capture()
     {
@@ -89,7 +86,7 @@ public class  SaveImage : MonoBehaviour
         yield return new WaitForSeconds(5);
         text.text = "Image added 1";
 
-        
+        ScheduleAddImageJob(library, tex, "new image", 1.0f);
 
         text.text = "Image added 2";
 
