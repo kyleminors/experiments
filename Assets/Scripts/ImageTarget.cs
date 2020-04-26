@@ -33,8 +33,8 @@ public class ImageTarget : MonoBehaviour
 
     public void AddImageTarget(Texture2D newTarget)
     {
-        
-        
+
+        Debug.Log("done!"); 
 
            library.ScheduleAddImageJob(newTarget, "newTarget", 1);
 
