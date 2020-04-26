@@ -20,13 +20,20 @@ public class ImageTarget : MonoBehaviour
     public RawImage imageTarget;
     public MutableRuntimeReferenceImageLibrary library;
 
-    public void CreateLibrary()
+    public void CreateLibrary(Text text)
     {
+        text.text = "1";
         var manager = arSession.AddComponent<ARTrackedImageManager>();
+        text.text = "2";
         library = (MutableRuntimeReferenceImageLibrary)manager.CreateRuntimeLibrary();
         manager.enabled = true;
-        manager.trackedImagePrefab = arSession; 
-        AddImageTarget(rawtex); 
+        text.text = "3";
+
+        manager.trackedImagePrefab = demoPrefab;
+        text.text = "manager and prefab created and assigned";
+        AddImageTarget(rawtex);
+        text.text = "target added";
+
     }
 
     public void AddImageTarget(Texture2D newTarget)
