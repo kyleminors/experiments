@@ -20,9 +20,9 @@ public class SaveImage : MonoBehaviour
 
     public void DoCapture()
     {
-        StartCoroutine("Capture"); 
-        imageTarget.rawtex = tex; 
-
+        //StartCoroutine("Capture"); 
+        imageTarget.rawtex = tex;
+        imageTarget.CreateLibrary(); 
     }
 
     IEnumerator Capture()

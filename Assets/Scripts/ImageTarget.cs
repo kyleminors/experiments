@@ -9,40 +9,39 @@ using UnityEngine.XR.ARSubsystems;
 using Unity.Burst;  
 using Unity.Jobs;
 
-
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ImageTarget", order = 1)]
-
 public class ImageTarget : MonoBehaviour
 {
     public Texture2D rawtex;
 
     public GameObject arSession;
 
+    public GameObject demoPrefab; 
     public RawImage rawImage;
     public RawImage imageTarget;
     public MutableRuntimeReferenceImageLibrary library;
 
-    void Start()
+    public void CreateLibrary()
     {
         var manager = arSession.AddComponent<ARTrackedImageManager>();
         library = (MutableRuntimeReferenceImageLibrary)manager.CreateRuntimeLibrary();
         manager.enabled = true;
-
+        manager.trackedImagePrefab = arSession; 
         AddImageTarget(rawtex); 
     }
 
     public void AddImageTarget(Texture2D newTarget)
     {
 
-        Debug.Log("done!"); 
+        Debug.Log("done 1!"); 
 
-           library.ScheduleAddImageJob(newTarget, "newTarget", 1);
-
+        library.ScheduleAddImageJob(newTarget, "newTarget", 1);
         
+        Debug.Log("done 2!");
+
     }
 
-    
-    
+
+
 }
 
 
