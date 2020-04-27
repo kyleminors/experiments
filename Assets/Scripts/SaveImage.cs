@@ -31,7 +31,10 @@ public class  SaveImage : MonoBehaviour
     
     void Update()
     {
-       
+        if(tex != null)
+        {
+            rawImageUI.texture = tex;
+        }
     }
 
     public void DoCapture()
@@ -68,11 +71,13 @@ public class  SaveImage : MonoBehaviour
     {
         text.text = "1";
         var manager = arSession.AddComponent<ARTrackedImageManager>();
-        manager.trackedImagePrefab = demoPrefab; 
-        manager.trackedImagePrefab = arSession.AddComponent<ARTrackedImageManager>().trackedImagePrefab;
-
-
+       // manager.trackedImagePrefab = demoPrefab;
         text.text = "2";
+
+        arSession.GetComponent<ARTrackedImageManager>().trackedImagePrefab = demoPrefab;
+
+
+        text.text = "3";
         library = (MutableRuntimeReferenceImageLibrary)manager.CreateRuntimeLibrary();
         
         manager.enabled = true;
