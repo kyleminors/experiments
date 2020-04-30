@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: red
-  m_Shader: {fileID: 4800000, guid: bcbc5748aaf084dd580cde196c7a96b0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7fe674de749f14df3850f63e669d24bb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -77,10 +77,10 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Scale1: 0.1
-    - _Scale2: 0.1
-    - _Scale3: 0.1
-    - _Scale4: 10
+    - _Scale1: 0.42
+    - _Scale2: 6.15
+    - _Scale3: 7.26
+    - _Scale4: 2.23
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 1
@@ -89,7 +89,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _ChannelFactor: {r: 1, g: 7.18, b: 0, a: 1.47}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Range: {r: 10.73, g: 1, b: 1, a: 1.72}
     - _Tint: {r: 1, g: 0.4575472, b: 0.96044624, a: 1}
