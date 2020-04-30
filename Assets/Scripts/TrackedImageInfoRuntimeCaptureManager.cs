@@ -45,9 +45,15 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
 
         ShowTrackerInfo();
 
-        captureImageButton.onClick.AddListener(() => StartCoroutine(CaptureImage()));
 
     }
+
+    public void CaptureImageButton()
+        {
+
+        StartCoroutine("CaptureImage");
+
+         }
 
     private IEnumerator CaptureImage()
     {
@@ -131,14 +137,12 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
-            // Display the name of the tracked image in the canvas
             currentImageText.text = trackedImage.referenceImage.name;
             trackedImage.transform.Rotate(Vector3.up, 180);
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
-            // Display the name of the tracked image in the canvas
             currentImageText.text = trackedImage.referenceImage.name;
             trackedImage.transform.Rotate(Vector3.up, 180);
         }
