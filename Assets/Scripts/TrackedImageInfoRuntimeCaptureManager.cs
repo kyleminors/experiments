@@ -135,6 +135,9 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
 
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
+
+        Instantiate(trackImageManager.trackedImagePrefab);
+        debugLog.text = "Instantiated"; 
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
             currentImageText.text = trackedImage.referenceImage.name;
