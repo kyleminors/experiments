@@ -71,13 +71,13 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
     {
         var runtimeReferenceImageLibrary = trackImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;
 
-        debugLog.text += $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}\n";
-        debugLog.text += $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})\n";
-        debugLog.text += $"trackImageManager.trackables.count ({trackImageManager.trackables.count})\n";
-        debugLog.text += $"trackImageManager.trackedImagePrefab.name ({trackImageManager.trackedImagePrefab.name})\n";
-        debugLog.text += $"trackImageManager.maxNumberOfMovingImages ({trackImageManager.maxNumberOfMovingImages})\n";
-        debugLog.text += $"trackImageManager.supportsMutableLibrary ({trackImageManager.subsystem.SubsystemDescriptor.supportsMutableLibrary})\n";
-        debugLog.text += $"trackImageManager.requiresPhysicalImageDimensions ({trackImageManager.subsystem.SubsystemDescriptor.requiresPhysicalImageDimensions})\n";
+        //debugLog.text += $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}\n";
+        //debugLog.text += $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})\n";
+        //debugLog.text += $"trackImageManager.trackables.count ({trackImageManager.trackables.count})\n";
+        //debugLog.text += $"trackImageManager.trackedImagePrefab.name ({trackImageManager.trackedImagePrefab.name})\n";
+        //debugLog.text += $"trackImageManager.maxNumberOfMovingImages ({trackImageManager.maxNumberOfMovingImages})\n";
+        //debugLog.text += $"trackImageManager.supportsMutableLibrary ({trackImageManager.subsystem.SubsystemDescriptor.supportsMutableLibrary})\n";
+        //debugLog.text += $"trackImageManager.requiresPhysicalImageDimensions ({trackImageManager.subsystem.SubsystemDescriptor.requiresPhysicalImageDimensions})\n";
     }
     void OnDisable()
     {
@@ -103,25 +103,13 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
         {
             MutableRuntimeReferenceImageLibrary mutableRuntimeReferenceImageLibrary = trackImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;
 
-            debugLog.text += $"TextureFormat.RGBA32 supported: {mutableRuntimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}\n";
-
-            debugLog.text += $"TextureFormat size: {texture2D.width}px width {texture2D.height}px height\n";
-
             var jobHandle = mutableRuntimeReferenceImageLibrary.ScheduleAddImageJob(texture2D, Guid.NewGuid().ToString(), 0.1f);
 
-            while (!jobHandle.IsCompleted)
-            {
-                jobLog.text = "Job Running...";
-            }
+            //while (!jobHandle.IsCompleted)
+            //{
+            //    jobLog.text = "Job Running...";
+            //}
 
-            //jobLog.text = "Job Completed...";
-            //debugLog.text += $"Job Completed ({mutableRuntimeReferenceImageLibrary.count})\n";
-            //debugLog.text += $"Supported Texture Count ({mutableRuntimeReferenceImageLibrary.supportedTextureFormatCount})\n";
-            //debugLog.text += $"trackImageManager.trackables.count ({trackImageManager.trackables.count})\n";
-            //debugLog.text += $"trackImageManager.trackedImagePrefab.name ({trackImageManager.trackedImagePrefab.name})\n";
-            //debugLog.text += $"trackImageManager.maxNumberOfMovingImages ({trackImageManager.maxNumberOfMovingImages})\n";
-            //debugLog.text += $"trackImageManager.supportsMutableLibrary ({trackImageManager.subsystem.SubsystemDescriptor.supportsMutableLibrary})\n";
-            //debugLog.text += $"trackImageManager.requiresPhysicalImageDimensions ({trackImageManager.subsystem.SubsystemDescriptor.requiresPhysicalImageDimensions})\n";
         }
         catch (Exception e)
         {
@@ -143,13 +131,18 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
             currentImageText.text = trackedImage.referenceImage.name;
-           // trackedImage.transform.Rotate(Vector3.up, 180);
+            trackedImage.transform.Rotate(Vector3.up, 180);
+            trackedImage.transform.localScale = new Vector3(trackedImage.referenceImage.width, trackedImage.referenceImage.height, 0.025f);
+
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
+
             currentImageText.text = trackedImage.referenceImage.name;
-            //trackedImage.transform.Rotate(Vector3.up, 180);
+            trackedImage.transform.Rotate(Vector3.up, 0f);
+            trackedImage.transform.localScale = new Vector3(trackedImage.referenceImage.width, trackedImage.referenceImage.height, 0.025f);
+
         }
     }
 }

@@ -77,10 +77,10 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Scale1: 0.42
-    - _Scale2: 6.15
-    - _Scale3: 7.26
-    - _Scale4: 2.23
+    - _Scale1: 10
+    - _Scale2: 10
+    - _Scale3: 10
+    - _Scale4: 10
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 1
@@ -92,4 +92,4 @@ Material:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Range: {r: 10.73, g: 1, b: 1, a: 1.72}
-    - _Tint: {r: 1, g: 0.4575472, b: 0.96044624, a: 1}
+    - _Tint: {r: 1, g: 0, b: 0.9275365, a: 1}
