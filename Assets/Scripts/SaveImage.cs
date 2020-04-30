@@ -13,39 +13,50 @@ using Unity.Jobs;
 
 public class  SaveImage : MonoBehaviour
 {
+    ARTrackedImageManager trackedImageManager; 
+
     public RawImage rawImageUI;
     public Canvas canvas;
     public Text text; 
-    public ImageTarget imageTarget;
+    //public ImageTarget imageTarget;
     public Texture2D tex;
     public Texture2D rawtex;
     public Texture2D egTex;
+
+    public ARTrackedImage trackedImage;
 
     public GameObject arSession;
 
     public GameObject demoPrefab;
     public RawImage rawImage;
     public MutableRuntimeReferenceImageLibrary library;
-    public XRReferenceImageLibrary library2;
+    //public XRReferenceImageLibrary library2;
+
 
     
+
     void Update()
     {
         if(tex != null)
         {
             rawImageUI.texture = tex;
         }
+        if (trackedImage != null)
+        {
+           // InstantiatePrefab(trackedImage);
+
+        }
     }
 
     public void DoCapture()
     {
         StartCoroutine("Capture");
-        text.text = "Captured";
+        Debug.Log("Captured");
 
-        imageTarget.rawtex = tex;
-        text.text = "Texture assigned";
+//        imageTarget.rawtex = tex;
+        Debug.Log("Texture assigned");
         CreateLibrary();
-        text.text = "Library created";
+        Debug.Log("Library created");
     }
     
 
@@ -69,21 +80,20 @@ public class  SaveImage : MonoBehaviour
 
     public void CreateLibrary()
     {
-        text.text = "1";
+        Debug.Log("1");
         var manager = arSession.AddComponent<ARTrackedImageManager>();
-       // manager.trackedImagePrefab = demoPrefab;
-        text.text = "2";
+        Debug.Log("2");
 
         arSession.GetComponent<ARTrackedImageManager>().trackedImagePrefab = demoPrefab;
 
 
-        text.text = "3";
+        Debug.Log("3");
         library = (MutableRuntimeReferenceImageLibrary)manager.CreateRuntimeLibrary();
         
         manager.enabled = true;
-        text.text = "3";
+        Debug.Log("3");
 
-        text.text = "manager and prefab created and assigned";
+        Debug.Log("manager and prefab created and assigned");
         AddImageTarget();
         text.text = "target added";
 
@@ -92,17 +102,40 @@ public class  SaveImage : MonoBehaviour
     void AddImageTarget()
     {
 
-        text.text = "Image added 1";
+        Debug.Log("Image added 1");
 
         MutableRuntimeReferenceImageLibraryExtensions.ScheduleAddImageJob(library, egTex, "new image", 1.0f);
-        text.text = "Image added 2";
+        Debug.Log("Image added 2");
 
+        ; 
     }
 
+    //void InstantiatePrefab(ARTrackedImage trackedImage)
+    //{
+
+
+    //    if (library != TrackingState.Tracking)
+    //    {
+
+    //        if (trackedImage.referenceImage.name == "ABC")
+    //        {
+    //            Instantiate(demoPrefab, transform.position, transform.rotation);
+    //        }
+    //        else if (trackedImage.referenceImage.name == "XYZ")
+    //        {
+    //            Instantiate(demoPrefab, transform.position, transform.rotation);
+    //        }
+
+    //    }
+    //    else
+    //    {
+    //        // Destroy object if you dont want to keep
+    //    }
+    //}
 
     private void OnApplicationQuit()
     {
-        Destroy(imageTarget.arSession); 
+        //Destroy(imageTarget.arSession); 
     }
 }
 

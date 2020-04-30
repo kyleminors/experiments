@@ -121,61 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &176351110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 176351112}
-  - component: {fileID: 176351111}
-  m_Layer: 0
-  m_Name: State
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &176351111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176351110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab7c74572b154e7c8a6e975f6386cc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rawImageUI: {fileID: 393810527}
-  canvas: {fileID: 1146159920}
-  text: {fileID: 1817445700}
-  imageTarget: {fileID: 11400000, guid: 056a9ed83131f4dfcb93326be0672452, type: 2}
-  tex: {fileID: 0}
-  rawtex: {fileID: 0}
-  egTex: {fileID: 2800000, guid: 54258762e5d984ec982aa51bb5a3584d, type: 3}
-  arSession: {fileID: 941953016}
-  demoPrefab: {fileID: 8898605831840560459, guid: 17935f7afd440404c977442ba94892f0,
-    type: 3}
-  rawImage: {fileID: 0}
-  library2: {fileID: 0}
---- !u!4 &176351112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176351110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.038376927, y: -0.6188264, z: 1.3054516}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &207347885
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,9 +540,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 941953016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a78f3f3b040147d3a2a48f0e1dba5da, type: 3}
+  m_Script: {fileID: 11500000, guid: e6c6aa7e6bcc44e4d89f748b57d8fad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugLog: {fileID: 1817445700}
+  jobLog: {fileID: 1817445700}
+  currentImageText: {fileID: 1817445700}
+  captureImageButton: {fileID: 1504870723}
+  placedObject: {fileID: 8898605831840560459, guid: 17935f7afd440404c977442ba94892f0,
+    type: 3}
+  scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
+  runtimeImageLibrary: {fileID: 11400000, guid: a602de280a1d741fabaae95d05482d03,
+    type: 2}
 --- !u!114 &941953020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,18 +748,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1504870724}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 176351111}
-        m_MethodName: DoCapture
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1504870724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +842,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 54
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
