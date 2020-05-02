@@ -30,15 +30,18 @@ public class Draw : MonoBehaviour
     void DrawCircles()
     {
         float x = 0;
+        float z = 0;
+
         foreach (GameObject objects in gameObjects)
         {
             
-            objects.transform.position = new Vector3(Mathf.Cos(Time.time) * x, Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, x)) * Mathf.PI, 0);
+            objects.transform.position = new Vector3(Mathf.Cos(Time.time) * x, Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, x)) * Mathf.PI, z + 0.01f);
             Material mat = new Material(Shader.Find("Standard")); 
             mat.color = Random.ColorHSV(Color.red.r, Color.blue.b);
             var newMat = objects.gameObject.GetComponent<Material>();
             newMat = mat;
-            x = x + 0.1f; 
+            x = x + 1f;
+            z = z + 0.01f; 
         }
     }
 }
