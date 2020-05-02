@@ -7,7 +7,6 @@ public class Draw : MonoBehaviour
 
     public int objectCount;
     private List<GameObject> gameObjects = new List<GameObject>();
-
     public ParticleSystem ps; 
 
     public GameObject drawPrefab;
@@ -34,8 +33,12 @@ public class Draw : MonoBehaviour
         foreach (GameObject objects in gameObjects)
         {
             
-            objects.transform.position = new Vector3(Mathf.Cos(Time.time), Mathf.Sin(Time.time) * x, 0);
-            x = x + 1; 
+            objects.transform.position = new Vector3(Mathf.Cos(Time.time) * x, Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, x)) * Mathf.PI, 0);
+            Material mat = new Material(Shader.Find("Standard")); 
+            mat.color = Random.ColorHSV(Color.red.r, Color.blue.b);
+            var newMat = objects.gameObject.GetComponent<Material>();
+            newMat = mat;
+            x = x + 0.1f; 
         }
     }
 }
