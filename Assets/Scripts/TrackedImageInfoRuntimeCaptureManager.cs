@@ -132,7 +132,7 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
         {
             currentImageText.text = trackedImage.referenceImage.name;
             trackedImage.transform.Rotate(Vector3.up, 180);
-            trackedImage.transform.localScale = new Vector3(trackedImage.referenceImage.width, trackedImage.referenceImage.height, 0.025f);
+            trackedImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.025f);
 
         }
 
@@ -140,8 +140,8 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
         {
 
             currentImageText.text = trackedImage.referenceImage.name;
-            trackedImage.transform.Rotate(Vector3.up, 0f);
-            trackedImage.transform.localScale = new Vector3(trackedImage.referenceImage.width, trackedImage.referenceImage.height, 0.025f);
+            trackedImage.transform.Rotate(Vector3.up, 180);
+            trackedImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.025f);
 
         }
     }

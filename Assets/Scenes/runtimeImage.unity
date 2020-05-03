@@ -543,7 +543,7 @@ MonoBehaviour:
   jobLog: {fileID: 1817445700}
   currentImageText: {fileID: 1817445700}
   captureImageButton: {fileID: 1504870723}
-  placedObject: {fileID: 2385846914113931356, guid: 42683f2d7f85546779dd26181875d8f2,
+  placedObject: {fileID: 8898605831840560459, guid: 17935f7afd440404c977442ba94892f0,
     type: 3}
   scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
   runtimeImageLibrary: {fileID: 11400000, guid: a602de280a1d741fabaae95d05482d03,

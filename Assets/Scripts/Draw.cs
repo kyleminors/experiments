@@ -35,13 +35,13 @@ public class Draw : MonoBehaviour
         foreach (GameObject objects in gameObjects)
         {
             
-            objects.transform.position = new Vector3(Mathf.Cos(Time.time) * x, Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, x)) * Mathf.PI, z + 0.01f);
-            Material mat = new Material(Shader.Find("Standard")); 
-            mat.color = Random.ColorHSV(Color.red.r, Color.blue.b);
-            var newMat = objects.gameObject.GetComponent<Material>();
-            newMat = mat;
-            x = x + 1f;
-            z = z + 0.01f; 
+            objects.transform.position = new Vector3(Mathf.Cos(Time.time / Mathf.PI) * x, Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, x * x)) * Mathf.PI, z + 0.01f);
+            var mat = objects.GetComponent<TrailRenderer>();
+            mat.startColor = Color.red;
+            mat.endColor = Color.blue; 
+
+            x = x + 0.01f;
+            z = z * 0.01f; 
         }
     }
 }
