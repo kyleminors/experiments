@@ -35,7 +35,7 @@ public class Draw : MonoBehaviour
         foreach (GameObject objects in gameObjects)
         {
             
-            objects.transform.position = new Vector3(Mathf.Cos(Time.time / Mathf.PI) * x, Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, x * x)) * Mathf.PI, z + 0.01f);
+            objects.transform.position = new Vector3(Mathf.Cos(Time.time * Mathf.PerlinNoise(Mathf.PI,  Mathf.PerlinNoise(x, z))), Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, x * x)) * Mathf.PI, z + 0.01f);
             var mat = objects.GetComponent<TrailRenderer>();
             mat.startColor = Color.red;
             mat.endColor = Color.blue; 

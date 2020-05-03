@@ -311,10 +311,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 23ba8e2ecb78a4bfca79f3e2fecbff2d, type: 2}
-  isGlobal: 0
+  isGlobal: 1
   blendDistance: 0
   weight: 1
-  priority: 0
+  priority: 1
 --- !u!1001 &747119177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5705,6 +5705,11 @@ PrefabInstance:
       propertyPath: ps
       value: 
       objectReference: {fileID: 1634485212}
+    - target: {fileID: 5519395495511661274, guid: b8931f2a451d44d61881d18be8e84be7,
+        type: 3}
+      propertyPath: objectCount
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8931f2a451d44d61881d18be8e84be7, type: 3}
 --- !u!1001 &8210071033854859282
