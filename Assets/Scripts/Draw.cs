@@ -24,9 +24,26 @@ public class Draw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DrawCircles(); 
+        DrawLines(); 
     }
 
+    void DrawLines()
+    {
+        float x = 0;
+        float z = 0;
+
+        foreach (GameObject objects in gameObjects)
+        {
+
+            objects.transform.position = new Vector3(x, x * Mathf.PerlinNoise(Time.time, Mathf.PI), z + 0.01f);
+            var mat = objects.GetComponent<TrailRenderer>();
+            mat.startColor = Color.yellow;
+            mat.endColor = Color.blue;
+
+            x = x + 0.1f;
+            z = z * 0.01f;
+        }
+    }
     void DrawCircles()
     {
         float x = 0;

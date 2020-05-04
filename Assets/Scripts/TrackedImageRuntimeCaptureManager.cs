@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
+public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 {
     [SerializeField]
     private Text debugLog;
@@ -15,6 +15,9 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
 
     [SerializeField]
     private Text currentImageText;
+
+    [SerializeField]
+    private RawImage currentTargetImage;
 
     [SerializeField]
     private Button captureImageButton;
@@ -127,13 +130,15 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
         //var newObj = Instantiate(trackImageManager.trackedImagePrefab);
 
       //  newObj.transform.rotation = new Quaternion(0, 0, 0, 1); 
-        debugLog.text = "Instantiated"; 
+        debugLog.text = "Instantiated";
+        //doing things in here for now
+
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
             currentImageText.text = trackedImage.referenceImage.name;
             trackedImage.transform.Rotate(Vector3.up, 180);
             trackedImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.025f);
-
+            currentTargetImage.texture = trackedImage.referenceImage.texture; 
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
@@ -142,6 +147,7 @@ public class TrackedImageInfoRuntimeCaptureManager : MonoBehaviour
             currentImageText.text = trackedImage.referenceImage.name;
             trackedImage.transform.Rotate(Vector3.up, 180);
             trackedImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.025f);
+            currentTargetImage.texture = trackedImage.referenceImage.texture;
 
         }
     }
