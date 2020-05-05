@@ -20,9 +20,6 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
     private RawImage currentTargetImage;
 
     [SerializeField]
-    private RawImage rectImage;
-
-    [SerializeField]
     private Button captureImageButton;
 
     [SerializeField]
@@ -36,6 +33,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
     private ARTrackedImageManager trackImageManager;
 
+    public GameObject rect2; 
     void Start()
     {
         debugLog.text += "Creating Runtime Mutable Image Library\n";
@@ -66,12 +64,13 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         jobLog.text = "Capturing Image...";
-        RectTransform rt = rectImage.GetComponent<RectTransform>();
+
+        RectTransform rt = rect2.GetComponent<RectTransform>();
 
         Rect rect = new Rect(new Vector2(rt.position.x, rt.position.y), rt.rect.size);
         //var texture = ScreenCapture.CaptureScreenshotAsTexture();
-        var texture = new Texture2D((int)rect.width, (int)rect.height, TextureFormat.RGB24, false);
-        texture.ReadPixels(rect, 0, 0, false);
+        var texture = new Texture2D(598, 1158, TextureFormat.RGB24, false);
+        texture.ReadPixels(new Rect(0, 100, Screen.width, Screen.height-100), 0, 0, false);
         texture.Apply();
         StartCoroutine(AddImageJob(texture));
     }
@@ -80,6 +79,14 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
     public void ShowTrackerInfo()
     {
         var runtimeReferenceImageLibrary = trackImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;
+
+        //debugLog.text += $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}\n";
+        //debugLog.text += $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})\n";
+        //debugLog.text += $"trackImageManager.trackables.count ({trackImageManager.trackables.count})\n";
+        //debugLog.text += $"trackImageManager.trackedImagePrefab.name ({trackImageManager.trackedImagePrefab.name})\n";
+        //debugLog.text += $"trackImageManager.maxNumberOfMovingImages ({trackImageManager.maxNumberOfMovingImages})\n";
+        //debugLog.text += $"trackImageManager.supportsMutableLibrary ({trackImageManager.subsystem.SubsystemDescriptor.supportsMutableLibrary})\n";
+        //debugLog.text += $"trackImageManager.requiresPhysicalImageDimensions ({trackImageManager.subsystem.SubsystemDescriptor.requiresPhysicalImageDimensions})\n";
     }
     void OnDisable()
     {
@@ -106,6 +113,11 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
             MutableRuntimeReferenceImageLibrary mutableRuntimeReferenceImageLibrary = trackImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;
 
             var jobHandle = mutableRuntimeReferenceImageLibrary.ScheduleAddImageJob(texture2D, Guid.NewGuid().ToString(), 0.1f);
+
+            //while (!jobHandle.IsCompleted)
+            //{
+            //    jobLog.text = "Job Running...";
+            //}
 
         }
         catch (Exception e)
