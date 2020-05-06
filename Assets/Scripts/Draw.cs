@@ -7,8 +7,9 @@ public class Draw : MonoBehaviour
 
     public int objectCount;
     private List<GameObject> gameObjects = new List<GameObject>();
-    public ParticleSystem ps; 
+    public ParticleSystem ps;
 
+    private Color[] colors; 
     public GameObject drawPrefab;
 
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class Draw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DrawWildRect(); 
+        DrawRect(); 
     }
 
     void DrawLines()
@@ -66,15 +67,21 @@ public class Draw : MonoBehaviour
     {
         float x = 0;
         float z = 0;
+        float alpha = 1.0f;
 
         foreach (GameObject objects in gameObjects)
         {
 
             objects.transform.position = new Vector3(Time.time + x, Mathf.Sin(Time.time + Mathf.PerlinNoise(Mathf.PI, x)) + x, z);
             var mat = objects.GetComponent<TrailRenderer>();
-            mat.startColor = Color.yellow;
-            mat.endColor = Color.blue;
+            
 
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(
+                new GradientColorKey[] { new GradientColorKey(Color.red, 0.0f), new GradientColorKey(Color.blue, 1.0f), new GradientColorKey(Color.yellow, 1.0f) },
+                new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+            );
+            mat.colorGradient = gradient;
             x = x + 0.1f;
             z = z * 0.01f;
         }
@@ -90,8 +97,8 @@ public class Draw : MonoBehaviour
 
             objects.transform.position = new Vector3(Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, 100)), x, 0);
             var mat = objects.GetComponent<TrailRenderer>();
-            mat.startColor = Color.yellow;
-            mat.endColor = Color.blue;
+            mat.startColor = Color.red;
+            mat.endColor = Color.magenta;
 
             x = x + 0.1f;
             z = z * 0.01f;
