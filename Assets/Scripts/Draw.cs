@@ -24,7 +24,7 @@ public class Draw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DrawLines(); 
+        DrawWildRect(); 
     }
 
     void DrawLines()
@@ -59,6 +59,60 @@ public class Draw : MonoBehaviour
 
             x = x + 0.1f;
             z = z * 0.01f; 
+        }
+    }
+
+    void DrawWaves()
+    {
+        float x = 0;
+        float z = 0;
+
+        foreach (GameObject objects in gameObjects)
+        {
+
+            objects.transform.position = new Vector3(Time.time + x, Mathf.Sin(Time.time + Mathf.PerlinNoise(Mathf.PI, x)) + x, z);
+            var mat = objects.GetComponent<TrailRenderer>();
+            mat.startColor = Color.yellow;
+            mat.endColor = Color.blue;
+
+            x = x + 0.1f;
+            z = z * 0.01f;
+        }
+    }
+
+    void DrawRect()
+    {
+        float x = 1;
+        float z = 0;
+
+        foreach (GameObject objects in gameObjects)
+        {
+
+            objects.transform.position = new Vector3(Mathf.Sin(Time.time * Mathf.PerlinNoise(Mathf.PI, 100)), x, 0);
+            var mat = objects.GetComponent<TrailRenderer>();
+            mat.startColor = Color.yellow;
+            mat.endColor = Color.blue;
+
+            x = x + 0.1f;
+            z = z * 0.01f;
+        }
+    }
+
+    void DrawWildRect()
+    {
+        float x = 1;
+        float z = 0;
+
+        foreach (GameObject objects in gameObjects)
+        {
+
+            objects.transform.position = new Vector3(Time.time * Mathf.PerlinNoise(Mathf.PI, 100), Mathf.PerlinNoise(Mathf.PI, 10), 0);
+            var mat = objects.GetComponent<TrailRenderer>();
+            mat.startColor = Color.red;
+            mat.endColor = Color.blue;
+
+            x = x + 0.1f;
+            z = z * 0.01f;
         }
     }
 }

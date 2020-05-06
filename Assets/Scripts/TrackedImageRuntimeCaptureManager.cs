@@ -70,7 +70,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         Rect rect = new Rect(new Vector2(rt.position.x, rt.position.y), rt.rect.size);
         //var texture = ScreenCapture.CaptureScreenshotAsTexture();
         var texture = new Texture2D(598, 1158, TextureFormat.RGB24, false);
-        texture.ReadPixels(new Rect(0.04f, 1000, texture.width, texture.height), 0, 0, false);
+        texture.ReadPixels(new Rect(0, 1158, texture.width, texture.height), 0, 0, false);
         texture.Apply();
         StartCoroutine(AddImageJob(texture));
     }
