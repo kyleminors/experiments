@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c6aa7e6bcc44e4d89f748b57d8fad6, type: 3}
   m_Name: ImageTarget1
   m_EditorClassIdentifier: 
-  rawImage: {fileID: 0}
+  debugLog: {fileID: 0}
+  jobLog: {fileID: 0}
+  currentImageText: {fileID: 0}
+  currentTargetImage: {fileID: 0}
+  captureImageButton: {fileID: 0}
+  placedObject: {fileID: 0}
+  scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
+  runtimeImageLibrary: {fileID: 0}
+  rect2: {fileID: 0}
