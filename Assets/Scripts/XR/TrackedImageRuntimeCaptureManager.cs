@@ -33,7 +33,8 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
     private ARTrackedImageManager trackImageManager;
 
-    public GameObject rect2; 
+    public GameObject rect2;
+
     void Start()
     {
         debugLog.text += "Creating Runtime Mutable Image Library\n";
@@ -55,6 +56,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
     public void CaptureImageButton()
         {
 
+        rect2 = GameObject.FindGameObjectWithTag("rect"); 
         StartCoroutine("CaptureImage");
 
          }
