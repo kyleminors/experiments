@@ -659,10 +659,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
-  m_MinScale: 0.75
-  m_MaxScale: 1.75
+  m_MinScale: 0.1
+  m_MaxScale: 10
   m_ElasticRatioLimit: 0
-  m_Sensitivity: 0.75
+  m_Sensitivity: 0.14
   m_Elasticity: 0.15
 --- !u!114 &2473076646164699421
 MonoBehaviour:

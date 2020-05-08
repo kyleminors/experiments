@@ -8,6 +8,9 @@ using UnityEngine.XR.ARSubsystems;
 public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 {
     [SerializeField]
+    private Camera arCamera;
+
+    [SerializeField]
     private Text debugLog;
 
     [SerializeField]
@@ -33,11 +36,12 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
     private ARTrackedImageManager trackImageManager;
 
-    public GameObject rect2;
+    public GameObject rect2; 
+
+    public GameObject rectContainer;
 
     void Start()
     {
-        debugLog.text += "Creating Runtime Mutable Image Library\n";
 
         trackImageManager = gameObject.AddComponent<ARTrackedImageManager>();
         trackImageManager.referenceLibrary = trackImageManager.CreateRuntimeLibrary(runtimeImageLibrary);
@@ -48,7 +52,6 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
         trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;
 
-        ShowTrackerInfo();
 
 
     }
@@ -65,31 +68,22 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        jobLog.text = "Capturing Image...";
-
         RectTransform rt = rect2.GetComponent<RectTransform>();
 
         Rect rect = new Rect(new Vector2(rt.position.x, rt.position.y), rt.rect.size);
-        //var texture = ScreenCapture.CaptureScreenshotAsTexture();
-        var texture = new Texture2D(598, 1158, TextureFormat.RGB24, false);
-        texture.ReadPixels(new Rect(0, 1158, texture.width, texture.height), 0, 0, false);
+        Debug.Log("1"); 
+        //rectContainer.transform.position = arCamera.WorldToScreenPoint(rectContainer.transform.position);
+        var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        texture.ReadPixels(new Rect(rect.x, rect.y, rect.width, rect.height), 0, 0, false);
+        Debug.Log("2");
+
         texture.Apply();
+        Debug.Log("3");
+
+        currentTargetImage.texture = texture;
         StartCoroutine(AddImageJob(texture));
     }
 
-
-    public void ShowTrackerInfo()
-    {
-        var runtimeReferenceImageLibrary = trackImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;
-
-        //debugLog.text += $"TextureFormat.RGBA32 supported: {runtimeReferenceImageLibrary.IsTextureFormatSupported(TextureFormat.RGBA32)}\n";
-        //debugLog.text += $"Supported Texture Count ({runtimeReferenceImageLibrary.supportedTextureFormatCount})\n";
-        //debugLog.text += $"trackImageManager.trackables.count ({trackImageManager.trackables.count})\n";
-        //debugLog.text += $"trackImageManager.trackedImagePrefab.name ({trackImageManager.trackedImagePrefab.name})\n";
-        //debugLog.text += $"trackImageManager.maxNumberOfMovingImages ({trackImageManager.maxNumberOfMovingImages})\n";
-        //debugLog.text += $"trackImageManager.supportsMutableLibrary ({trackImageManager.subsystem.SubsystemDescriptor.supportsMutableLibrary})\n";
-        //debugLog.text += $"trackImageManager.requiresPhysicalImageDimensions ({trackImageManager.subsystem.SubsystemDescriptor.requiresPhysicalImageDimensions})\n";
-    }
     void OnDisable()
     {
         trackImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
@@ -98,12 +92,6 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
     public IEnumerator AddImageJob(Texture2D texture2D)
     {
         yield return null;
-
-        debugLog.text = string.Empty;
-
-        debugLog.text += "Adding image\n";
-
-        jobLog.text = "Job Starting...";
 
         var firstGuid = new SerializableGuid(0, 0);
         var secondGuid = new SerializableGuid(0, 0);
@@ -115,12 +103,6 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
             MutableRuntimeReferenceImageLibrary mutableRuntimeReferenceImageLibrary = trackImageManager.referenceLibrary as MutableRuntimeReferenceImageLibrary;
 
             var jobHandle = mutableRuntimeReferenceImageLibrary.ScheduleAddImageJob(texture2D, Guid.NewGuid().ToString(), 0.1f);
-
-            //while (!jobHandle.IsCompleted)
-            //{
-            //    jobLog.text = "Job Running...";
-            //}
-
         }
         catch (Exception e)
         {
@@ -134,12 +116,6 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
-
-        //var newObj = Instantiate(trackImageManager.trackedImagePrefab);
-
-      //  newObj.transform.rotation = new Quaternion(0, 0, 0, 1); 
-        debugLog.text = "Instantiated";
-        //doing things in here for now
 
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
@@ -159,6 +135,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
         }
     }
+    
 }
 
 
