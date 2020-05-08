@@ -36,7 +36,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
     private ARTrackedImageManager trackImageManager;
 
-    public RawImage rect2; 
+    public RawImage rectImage; 
 
     public GameObject rectContainer;
 
@@ -59,25 +59,33 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
     public void CaptureImageButton()
         {
 
-        //rect2 = GameObject.FindGameObjectWithTag("rect").GetComponent<RawImage>(); 
         StartCoroutine("CaptureImage");
 
          }
 
     private IEnumerator CaptureImage()
     {
+        Debug.Log("1"); 
         yield return new WaitForEndOfFrame();
 
-        RectTransform rt = rect2.GetComponent<RectTransform>();
+        //RectTransform rt = rectImage.GetComponent<RectTransform>();
+
+        //Debug.Log("RT Position " + rt.position);
 
         //rectContainer.transform.position = arCamera.WorldToScreenPoint(rectContainer.transform.position);
+
+        Debug.Log("Rect Container Position " + rectContainer.transform.position);
+
         var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false);
+        Debug.Log("2");
 
         texture.Apply();
-        rect2.texture = texture; 
+        //rectImage.texture = texture; 
         currentTargetImage.texture = texture;
         StartCoroutine(AddImageJob(texture));
+        Debug.Log("3");
+
     }
 
     void OnDisable()
@@ -115,6 +123,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
+            Instantiate(placedObject); 
             currentImageText.text = trackedImage.referenceImage.name;
             trackedImage.transform.Rotate(Vector3.up, 180);
             trackedImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.025f);
