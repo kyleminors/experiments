@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/runtimeImage.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/VuforiaArt.unity
+    guid: 6ef1051e1be2d4f78bbd9fdd3097ab91
   m_configObjects: {}

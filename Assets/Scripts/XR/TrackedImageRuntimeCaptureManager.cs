@@ -36,7 +36,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
     private ARTrackedImageManager trackImageManager;
 
-    public RawImage rectImage; 
+    public GameObject rectImage; 
 
     public GameObject rectContainer;
 
@@ -68,11 +68,12 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         Debug.Log("1"); 
         yield return new WaitForEndOfFrame();
 
-        //RectTransform rt = rectImage.GetComponent<RectTransform>();
+        RectTransform rt = rectImage.GetComponent<RectTransform>();
 
-        //Debug.Log("RT Position " + rt.position);
+        Rect rect = new Rect(rt.transform.position.x, rt.transform.position.y, rt.transform.localScale.x, rt.transform.localScale.x); 
+        Debug.Log("RT Position " + rt.position);
 
-        //rectContainer.transform.position = arCamera.WorldToScreenPoint(rectContainer.transform.position);
+        rect.position = arCamera.WorldToScreenPoint(rect.position);
 
         Debug.Log("Rect Container Position " + rectContainer.transform.position);
 
