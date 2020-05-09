@@ -77,7 +77,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         Debug.Log("Rect Container Position " + rectContainer.transform.position);
 
         var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false);
+        texture.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0, false);
         Debug.Log("2");
 
         texture.Apply();
@@ -132,7 +132,7 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
-
+            Instantiate(placedObject);
             currentImageText.text = trackedImage.referenceImage.name;
             trackedImage.transform.Rotate(Vector3.up, 180);
             trackedImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.025f);
