@@ -53,6 +53,12 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;
 
 
+    }
+
+    private void Update()
+    {
+        if(rectContainer == null)
+        rectContainer = GameObject.FindGameObjectWithTag("rect");
 
     }
 
@@ -73,12 +79,12 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         Rect rect = new Rect(rt.transform.position.x, rt.transform.position.y, rt.transform.localScale.x, rt.transform.localScale.x); 
         Debug.Log("RT Position " + rt.position);
 
-        rect.position = arCamera.WorldToScreenPoint(rect.position);
+        rect.size = arCamera.WorldToScreenPoint(rect.size);
 
         Debug.Log("Rect Container Position " + rectContainer.transform.position);
 
         var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        texture.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0, false);
+        texture.ReadPixels(new Rect(0, 0, rect.size.x, rect.size.y), 0, 0, false);
         Debug.Log("2");
 
         texture.Apply();
