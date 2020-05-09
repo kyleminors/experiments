@@ -83,8 +83,9 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
         Debug.Log("Rect Container Position " + rectContainer.transform.position);
 
-        var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        texture.ReadPixels(new Rect(rect.position.x, rect.position.y, rect.size.x, rect.size.y), 0, 0, false);
+        var texture = new Texture2D((int)rect.width, (int)rect.height, TextureFormat.RGB24, false);
+        texture.ReadPixels(new Rect(rect.position.x, rect.position.y, texture.width, texture.height), 0, 0, false);
+
         Debug.Log("2");
 
         texture.Apply();
