@@ -23,11 +23,9 @@ public class ReadPixels : MonoBehaviour
         Vector3 scaleVector = rawImage.rect.size; 
         texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         //texture.ReadPixels(new Rect(0, 0, (float)rawImage.localScale.x, (float)rawImage.localScale.y), 0, 0, false);
-        texture.ReadPixels(new Rect(rectorVector.x, rectorVector.y, 500, 900), 0, 0, false);
+        texture.ReadPixels(new Rect(rectorVector.x, rectorVector.y, 500, 500), 0, 0, false);
 
-        Debug.Log(scaleVector); 
-        Debug.Log(rectorVector);
-        Debug.Log(rawImage.localScale.x);
+        Debug.Log("scale vector " + scaleVector); 
 
         texture.Apply();
         Debug.Log("2");

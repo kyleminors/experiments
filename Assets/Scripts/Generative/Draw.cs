@@ -25,7 +25,7 @@ public class Draw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DrawLines(); 
+        DrawRect(); 
     }
 
     void DrawLines()
