@@ -1299,7 +1299,7 @@ PrefabInstance:
     - target: {fileID: 8139361802992654035, guid: 427ba701da2e74bb3bb922b131405a76,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8139361802992654037, guid: 427ba701da2e74bb3bb922b131405a76,
         type: 3}
@@ -1439,8 +1439,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069758162}
-        m_MethodName: Capture
+      - m_Target: {fileID: 1953429653}
+        m_MethodName: CaptureImageButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2099,7 +2099,7 @@ PrefabInstance:
     - target: {fileID: 6824899628646638409, guid: 5de0898f69d51493ca8a20ecfa99d5ab,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6824899628646638411, guid: 5de0898f69d51493ca8a20ecfa99d5ab,
         type: 3}
@@ -2177,24 +2177,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953429652}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6c6aa7e6bcc44e4d89f748b57d8fad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imageWarp: {fileID: 3496368008515531722}
   arCamera: {fileID: 1793089057}
   debugLog: {fileID: 1817445700}
   jobLog: {fileID: 1817445700}
   currentImageText: {fileID: 1817445700}
-  currentTargetImage: {fileID: 75518173}
+  currentTargetImage: {fileID: 0}
   captureImageButton: {fileID: 1504870723}
   placedObject: {fileID: 2061623257501106440, guid: 29add7b9f4aef43fb960a4704673fffb,
     type: 3}
   scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
   runtimeImageLibrary: {fileID: 11400000, guid: a602de280a1d741fabaae95d05482d03,
     type: 2}
-  rectImage: {fileID: 0}
-  rectContainer: {fileID: 0}
+  rectImage: {fileID: 533000886}
+  rectContainer: {fileID: 569269202}
 --- !u!1 &1958523598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,7 +2355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2069758162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2600,7 +2601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -429.484}
+  m_AnchoredPosition: {x: 0, y: -429.48438}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3496368007224258356
@@ -2757,7 +2758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 604.2287, y: 0}
+  m_AnchoredPosition: {x: 604.22876, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3496368007371627869
@@ -2935,7 +2936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241.00706, y: -159.51553}
+  m_AnchoredPosition: {x: 241.00706, y: -345.40427}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3496368007749080108
@@ -3025,7 +3026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -241.00706, y: -159.51553}
+  m_AnchoredPosition: {x: -241.00706, y: -345.40427}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3496368007835854910
@@ -3222,7 +3223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241.00706, y: 250.77394}
+  m_AnchoredPosition: {x: 241.00706, y: 543.0091}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3496368008515531572
@@ -3294,7 +3295,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 7b0f297676187483fa8a9ca1ad99e3e8, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3323,62 +3324,62 @@ MonoBehaviour:
   m_cropTop: 0.15
   m_cropBottom: 0.19
   m_warpManager:
-    m_originalCornerPositionBL: {x: -344.29584, y: -277.62915, z: 0}
-    m_originalCornerPositionTL: {x: -344.29584, y: 344.0215, z: 0}
-    m_originalCornerPositionTR: {x: 344.29584, y: 344.0215, z: 0}
-    m_originalCornerPositionBR: {x: 344.29584, y: -277.62915, z: 0}
-    m_cornerPositionBL: {x: -241.00708, y: -159.51553, z: 0}
-    m_cornerPositionTL: {x: -241.00708, y: 250.77393, z: 0}
-    m_cornerPositionTR: {x: 241.00708, y: 250.77393, z: 0}
-    m_cornerPositionBR: {x: 241.00708, y: -159.51553, z: 0}
+    m_originalCornerPositionBL: {x: -344.29584, y: -601.15967, z: 0}
+    m_originalCornerPositionTL: {x: -344.29584, y: 744.92126, z: 0}
+    m_originalCornerPositionTR: {x: 344.29584, y: 744.92126, z: 0}
+    m_originalCornerPositionBR: {x: 344.29584, y: -601.15967, z: 0}
+    m_cornerPositionBL: {x: -241.00708, y: -345.4043, z: 0}
+    m_cornerPositionTL: {x: -241.00708, y: 543.0091, z: 0}
+    m_cornerPositionTR: {x: 241.00708, y: 543.0091, z: 0}
+    m_cornerPositionBR: {x: 241.00708, y: -345.4043, z: 0}
     m_preWarpMeshXDiff: {x: 688.5917, y: 0, z: 0}
-    m_preWarpMeshYDiff: {x: 0, y: 621.65063, z: 0}
+    m_preWarpMeshYDiff: {x: 0, y: 1346.0809, z: 0}
     m_topCurve:
       m_pointsData:
-      - m_anchorPoint: {x: -241.00708, y: 250.77393, z: 0}
-        m_handlePointA: {x: -89.949875, y: 250.77393, z: 0}
-        m_handlePointB: {x: -392.06427, y: 250.77393, z: 0}
+      - m_anchorPoint: {x: -241.00708, y: 543.0091, z: 0}
+        m_handlePointA: {x: -89.949875, y: 543.0091, z: 0}
+        m_handlePointB: {x: -392.06427, y: 543.0091, z: 0}
         m_mirroredHandles: 1
         m_handlesFollowAnchor: 1
-      - m_anchorPoint: {x: 241.00708, y: 250.77393, z: 0}
-        m_handlePointA: {x: 89.949875, y: 250.77393, z: 0}
-        m_handlePointB: {x: 392.06427, y: 250.77393, z: 0}
+      - m_anchorPoint: {x: 241.00708, y: 543.0091, z: 0}
+        m_handlePointA: {x: 89.949875, y: 543.0091, z: 0}
+        m_handlePointB: {x: 392.06427, y: 543.0091, z: 0}
         m_mirroredHandles: 1
         m_handlesFollowAnchor: 1
     m_leftCurve:
       m_pointsData:
-      - m_anchorPoint: {x: -241.00708, y: -159.51553, z: 0}
-        m_handlePointA: {x: -241.00708, y: -52.144463, z: 0}
-        m_handlePointB: {x: -241.00708, y: -266.8866, z: 0}
+      - m_anchorPoint: {x: -241.00708, y: -345.4043, z: 0}
+        m_handlePointA: {x: -241.00708, y: -238.03323, z: 0}
+        m_handlePointB: {x: -241.00708, y: -452.77536, z: 0}
         m_mirroredHandles: 1
         m_handlesFollowAnchor: 1
-      - m_anchorPoint: {x: -241.00708, y: 250.77393, z: 0}
-        m_handlePointA: {x: -241.00708, y: 143.40286, z: 0}
-        m_handlePointB: {x: -241.00708, y: 358.145, z: 0}
+      - m_anchorPoint: {x: -241.00708, y: 543.0091, z: 0}
+        m_handlePointA: {x: -241.00708, y: 435.63803, z: 0}
+        m_handlePointB: {x: -241.00708, y: 650.3801, z: 0}
         m_mirroredHandles: 1
         m_handlesFollowAnchor: 1
     m_rightCurve:
       m_pointsData:
-      - m_anchorPoint: {x: 241.00708, y: 250.77393, z: 0}
-        m_handlePointA: {x: 241.00708, y: 143.40286, z: 0}
-        m_handlePointB: {x: 241.00708, y: 358.145, z: 0}
+      - m_anchorPoint: {x: 241.00708, y: 543.0091, z: 0}
+        m_handlePointA: {x: 241.00708, y: 435.63803, z: 0}
+        m_handlePointB: {x: 241.00708, y: 650.3801, z: 0}
         m_mirroredHandles: 1
         m_handlesFollowAnchor: 1
-      - m_anchorPoint: {x: 241.00708, y: -159.51553, z: 0}
-        m_handlePointA: {x: 241.00708, y: -52.144463, z: 0}
-        m_handlePointB: {x: 241.00708, y: -266.8866, z: 0}
+      - m_anchorPoint: {x: 241.00708, y: -345.4043, z: 0}
+        m_handlePointA: {x: 241.00708, y: -238.03323, z: 0}
+        m_handlePointB: {x: 241.00708, y: -452.77536, z: 0}
         m_mirroredHandles: 1
         m_handlesFollowAnchor: 1
     m_bottomCurve:
       m_pointsData:
-      - m_anchorPoint: {x: 241.00708, y: -159.51553, z: 0}
-        m_handlePointA: {x: 89.949875, y: -159.51553, z: 0}
-        m_handlePointB: {x: 392.06427, y: -159.51553, z: 0}
+      - m_anchorPoint: {x: 241.00708, y: -345.4043, z: 0}
+        m_handlePointA: {x: 89.949875, y: -345.4043, z: 0}
+        m_handlePointB: {x: 392.06427, y: -345.4043, z: 0}
         m_mirroredHandles: 1
         m_handlesFollowAnchor: 1
-      - m_anchorPoint: {x: -241.00708, y: -159.51553, z: 0}
-        m_handlePointA: {x: -89.949875, y: -159.51553, z: 0}
-        m_handlePointB: {x: -392.06427, y: -159.51553, z: 0}
+      - m_anchorPoint: {x: -241.00708, y: -345.4043, z: 0}
+        m_handlePointA: {x: -89.949875, y: -345.4043, z: 0}
+        m_handlePointB: {x: -392.06427, y: -345.4043, z: 0}
         m_mirroredHandles: 1
         m_handlesFollowAnchor: 1
     m_initialisedBezierHandleOffsets: 1
@@ -3450,7 +3451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -241.00706, y: 250.77394}
+  m_AnchoredPosition: {x: -241.00706, y: 543.0091}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3496368008677313853
@@ -3626,7 +3627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -429.484}
+  m_AnchoredPosition: {x: 0, y: -429.48438}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3496368008970953207

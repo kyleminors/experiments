@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using Fenderrio.ImageWarp;
 
 public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 {
+    public ImageWarp imageWarp;
+
     [SerializeField]
     private Camera arCamera;
 
@@ -76,22 +79,26 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
         RectTransform rt = rectImage.GetComponent<RectTransform>();
 
-        Rect rect = new Rect(rt.transform.position.x, rt.transform.position.y, rt.transform.localScale.x, rt.transform.localScale.x); 
-        Debug.Log("RT Position " + rt.position);
+        Rect rect = new Rect(0, 0, Screen.width, Screen.height); 
 
-        rect.size = arCamera.WorldToScreenPoint(rect.size);
 
         Debug.Log("Rect Container Position " + rectContainer.transform.position);
 
         var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        texture.ReadPixels(new Rect(rect.position.x, rect.position.y, texture.width, texture.height), 0, 0, false);
+
+        texture.ReadPixels(rect, 0, 0, false);
 
         Debug.Log("2");
 
         texture.Apply();
-        //rectImage.texture = texture; 
-        currentTargetImage.texture = texture;
+       // currentTargetImage.texture = texture;
+
+        Sprite sprite = Sprite.Create(texture, rect, new Vector2(1.0f, 1.0f), 100.0f);
+
+        imageWarp.sprite = sprite;
+
         StartCoroutine(AddImageJob(texture));
+
         Debug.Log("3");
 
     }
