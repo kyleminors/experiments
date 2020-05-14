@@ -109,8 +109,13 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         Debug.Log("1");
         yield return new WaitForEndOfFrame();
 
-        Rect rect = new Rect(imageWarpCapture.sprite.textureRect);
+        Rect rect = new Rect(imageWarpCapture.rectTransform.rect);
+        Debug.Log("rect size " + rect.size);
+        Debug.Log("rect pos " + imageWarp.transform.position);
 
+        Vector3 rectPos = imageWarp.transform.position;
+
+        Debug.Log(arCamera.WorldToScreenPoint(rect.position)); 
         var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
 
         texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false);
@@ -120,13 +125,13 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         texture.Apply();
         currentTargetImage.texture = texture;
 
-        Sprite sprite = Sprite.Create(texture, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f, 0.5f), 1000.0f);
+        //Sprite sprite = Sprite.Create(texture, new Rect(562, 1218, 351, 981), new Vector2(0.5f, 0.5f), 1000.0f);
+        Sprite sprite = Sprite.Create(texture, new Rect(0, 0, rect.size.x, rect.size.y), new Vector2(0.5f, 0.5f), 1000.0f);
 
         imageWarp.sprite = sprite;
 
         StartCoroutine(AddImageJob(texture));
 
-        Debug.Log("3");
 
     }
 
