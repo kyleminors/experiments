@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &304461390
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -218,7 +218,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -830,7 +830,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -1466,7 +1466,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -4118,9 +4118,9 @@ ParticleSystem:
     attachRibbonsToTransform: 0
     colorOverLifetime:
       serializedVersion: 2
-      minMaxState: 2
-      minColor: {r: 0.4056604, g: 0.05549129, b: 0.26678976, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      minMaxState: 0
+      minColor: {r: 0.9433962, g: 0.048949808, b: 0.5916475, a: 1}
+      maxColor: {r: 0.3764706, g: 0.039215695, b: 0.1955697, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4181,15 +4181,15 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     widthOverTrail:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       scalar: 0.05
       minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
-          value: 1
+          time: 0.08571243
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -4234,29 +4234,29 @@ ParticleSystem:
         m_RotationOrder: 4
     colorOverTrail:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 3
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.37131894, g: 0.019223915, b: 0.4528302, a: 1}
+      maxColor: {r: 0.9056604, g: 0.36311856, b: 0.36311856, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
-        key6: {r: 0, g: 0, b: 0, a: 0}
-        key7: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0, b: 0, a: 1}
+        key1: {r: 0.75, g: 0.15, b: 0, a: 1}
+        key2: {r: 0, g: 0.016765257, b: 1.6688482, a: 0}
+        key3: {r: 12, g: 10, b: 2.5, a: 0}
+        key4: {r: 7.7283134, g: 6.058956, b: 1.615525, a: 0}
+        key5: {r: 3.05633, g: 1.7485995, b: 0.64816654, a: 0}
+        key6: {r: 3.5, g: 2, b: 0.5, a: 0}
+        key7: {r: 4, g: 3.5, b: 1.2, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
-        ctime3: 0
-        ctime4: 0
-        ctime5: 0
-        ctime6: 0
-        ctime7: 0
+        ctime1: 37008
+        ctime2: 38357
+        ctime3: 40863
+        ctime4: 47224
+        ctime5: 53777
+        ctime6: 55512
+        ctime7: 58982
         atime0: 0
-        atime1: 65535
+        atime1: 41827
         atime2: 0
         atime3: 0
         atime4: 0
@@ -4264,28 +4264,28 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
+        m_NumColorKeys: 8
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
-        key3: {r: 0, g: 0, b: 0, a: 0}
-        key4: {r: 0, g: 0, b: 0, a: 0}
-        key5: {r: 0, g: 0, b: 0, a: 0}
-        key6: {r: 0, g: 0, b: 0, a: 0}
-        key7: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 0, g: 0, b: 0, a: 1}
+        key1: {r: 0.75, g: 0.15, b: 0, a: 1}
+        key2: {r: 0, g: 0.016765257, b: 1.6688482, a: 0}
+        key3: {r: 12, g: 10, b: 2.5, a: 0}
+        key4: {r: 7.7283134, g: 6.058956, b: 1.615525, a: 0}
+        key5: {r: 3.05633, g: 1.7485995, b: 0.64816654, a: 0}
+        key6: {r: 3.5, g: 2, b: 0.5, a: 0}
+        key7: {r: 4, g: 3.5, b: 1.2, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
-        ctime3: 0
-        ctime4: 0
-        ctime5: 0
-        ctime6: 0
-        ctime7: 0
+        ctime1: 10794
+        ctime2: 38357
+        ctime3: 40863
+        ctime4: 47224
+        ctime5: 53777
+        ctime6: 55512
+        ctime7: 58982
         atime0: 0
-        atime1: 65535
+        atime1: 41827
         atime2: 0
         atime3: 0
         atime4: 0
@@ -4293,7 +4293,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
+        m_NumColorKeys: 8
         m_NumAlphaKeys: 2
   CustomDataModule:
     enabled: 0
@@ -4868,13 +4868,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304461389}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1, z: 21.28}
+  m_LocalRotation: {x: 0.28212306, y: 0.7136579, z: 0.4969293, w: -0.40516704}
+  m_LocalPosition: {x: 0, y: -2.1, z: 65.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -69.7, y: 239.17, z: 0}
 --- !u!1 &899404058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,10 +5018,10 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
+  field of view: 19
+  orthographic: 1
+  orthographic size: 16.36
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5044,7 +5044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139474864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 10.56, z: 32.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

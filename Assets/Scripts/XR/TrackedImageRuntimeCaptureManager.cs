@@ -10,6 +10,8 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 {
     public ImageWarp imageWarp;
 
+    public ImageWarp imageWarpCapture; 
+
     [SerializeField]
     private Camera arCamera;
 
@@ -46,14 +48,14 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
     void Start()
     {
 
-        trackImageManager = gameObject.AddComponent<ARTrackedImageManager>();
-        trackImageManager.referenceLibrary = trackImageManager.CreateRuntimeLibrary(runtimeImageLibrary);
-        trackImageManager.maxNumberOfMovingImages = 3;
-        trackImageManager.trackedImagePrefab = placedObject;
+        //trackImageManager = gameObject.AddComponent<ARTrackedImageManager>();
+        //trackImageManager.referenceLibrary = trackImageManager.CreateRuntimeLibrary(runtimeImageLibrary);
+        //trackImageManager.maxNumberOfMovingImages = 3;
+        //trackImageManager.trackedImagePrefab = placedObject;
 
-        trackImageManager.enabled = true;
+        //trackImageManager.enabled = true;
 
-        trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;
+        //trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;
 
 
     }
@@ -72,28 +74,53 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 
          }
 
+    //private IEnumerator CaptureImage()
+    //{
+    //    Debug.Log("1"); 
+    //    yield return new WaitForEndOfFrame();
+
+    //    RectTransform rt = rectImage.GetComponent<RectTransform>();
+
+    //    //Rect rect = new Rect(0, 0, Screen.width, Screen.height);
+
+    //    Rect rect = new Rect(imageWarpCapture.sprite.textureRect);
+
+    //    var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+
+    //    texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false);
+
+    //    Debug.Log("2");
+
+    //    texture.Apply();
+    //   // currentTargetImage.texture = texture;
+
+    //    Sprite sprite = Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f), 100.0f);
+
+    //    imageWarp.sprite = sprite;
+
+    //    StartCoroutine(AddImageJob(texture));
+
+    //    Debug.Log("3");
+
+    //}
+
     private IEnumerator CaptureImage()
     {
-        Debug.Log("1"); 
+        Debug.Log("1");
         yield return new WaitForEndOfFrame();
 
-        RectTransform rt = rectImage.GetComponent<RectTransform>();
-
-        Rect rect = new Rect(0, 0, Screen.width, Screen.height); 
-
-
-        Debug.Log("Rect Container Position " + rectContainer.transform.position);
+        Rect rect = new Rect(imageWarpCapture.sprite.textureRect);
 
         var texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
 
-        texture.ReadPixels(rect, 0, 0, false);
+        texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false);
 
         Debug.Log("2");
 
         texture.Apply();
-       // currentTargetImage.texture = texture;
+        currentTargetImage.texture = texture;
 
-        Sprite sprite = Sprite.Create(texture, rect, new Vector2(1.0f, 1.0f), 100.0f);
+        Sprite sprite = Sprite.Create(texture, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f, 0.5f), 1000.0f);
 
         imageWarp.sprite = sprite;
 
