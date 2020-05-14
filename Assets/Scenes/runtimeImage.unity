@@ -1735,7 +1735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1137073119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2090,7 +2090,7 @@ PrefabInstance:
     - target: {fileID: 8139361802992654035, guid: 427ba701da2e74bb3bb922b131405a76,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8139361802992654037, guid: 427ba701da2e74bb3bb922b131405a76,
         type: 3}
@@ -2318,7 +2318,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069758168}
+      - m_Target: {fileID: 1514205899}
         m_MethodName: CaptureImageButton
         m_Mode: 1
         m_Arguments:
@@ -2365,6 +2365,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504870721}
   m_CullTransparentMesh: 0
+--- !u!1 &1514205894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6824899628646638409, guid: 5de0898f69d51493ca8a20ecfa99d5ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1953429651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1514205899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514205894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c6aa7e6bcc44e4d89f748b57d8fad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageWarp: {fileID: 3496368008515531722}
+  imageWarpPanel: {fileID: 1137073118}
+  imageWarpCapture: {fileID: 475586418}
+  canvas: {fileID: 475586417}
+  arCamera: {fileID: 1793089057}
+  debugLog: {fileID: 1817445700}
+  jobLog: {fileID: 1817445700}
+  currentImageText: {fileID: 1817445700}
+  currentTargetImage: {fileID: 75518173}
+  captureImageButton: {fileID: 1504870723}
+  placedObject: {fileID: 2061623257501106440, guid: 29add7b9f4aef43fb960a4704673fffb,
+    type: 3}
+  scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
+  runtimeImageLibrary: {fileID: 11400000, guid: a602de280a1d741fabaae95d05482d03,
+    type: 2}
+  rectImage: {fileID: 533000886}
+  rectContainer: {fileID: 569269202}
 --- !u!1 &1537190325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,7 +2791,7 @@ PrefabInstance:
     - target: {fileID: 4746281936561870667, guid: b7fc0edd9514e41f2979ae5513988797,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4746281936561870669, guid: b7fc0edd9514e41f2979ae5513988797,
         type: 3}
@@ -3180,7 +3215,7 @@ PrefabInstance:
     - target: {fileID: 6824899628646638409, guid: 5de0898f69d51493ca8a20ecfa99d5ab,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6824899628646638411, guid: 5de0898f69d51493ca8a20ecfa99d5ab,
         type: 3}
@@ -3488,14 +3523,13 @@ GameObject:
   - component: {fileID: 2069758164}
   - component: {fileID: 2069758163}
   - component: {fileID: 2069758162}
-  - component: {fileID: 2069758168}
   m_Layer: 0
   m_Name: ARCameraVuforia
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2069758162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3608,34 +3642,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2069758168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069758161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c6aa7e6bcc44e4d89f748b57d8fad6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageWarp: {fileID: 3496368008515531722}
-  imageWarpCapture: {fileID: 475586418}
-  canvas: {fileID: 475586417}
-  arCamera: {fileID: 1793089057}
-  debugLog: {fileID: 1817445700}
-  jobLog: {fileID: 1817445700}
-  currentImageText: {fileID: 1817445700}
-  currentTargetImage: {fileID: 75518173}
-  captureImageButton: {fileID: 1504870723}
-  placedObject: {fileID: 2061623257501106440, guid: 29add7b9f4aef43fb960a4704673fffb,
-    type: 3}
-  scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
-  runtimeImageLibrary: {fileID: 11400000, guid: a602de280a1d741fabaae95d05482d03,
-    type: 2}
-  rectImage: {fileID: 533000886}
-  rectContainer: {fileID: 569269202}
 --- !u!1 &2095151820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3840,7 +3846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 11
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368007215349495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3901,7 +3907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 8
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368007224258358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3997,7 +4003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 4
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368007371627868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4049,7 +4055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 9
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368007423309509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4173,7 +4179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 2
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368007749080099
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4263,7 +4269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 3
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368007835854909
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4391,7 +4397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 10
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!1 &3496368008231129152
 GameObject:
   m_ObjectHideFlags: 0
@@ -4460,7 +4466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 1
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368008231129159
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4688,7 +4694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 0
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368008677313852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4816,7 +4822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 5
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!222 &3496368008970953099
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4866,7 +4872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 6
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368008970953206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4973,7 +4979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handleToAffect: 7
-  m_imageWarp: {fileID: 0}
+  m_imageWarp: {fileID: 3496368008515531722}
 --- !u!224 &3496368009047675111
 RectTransform:
   m_ObjectHideFlags: 0

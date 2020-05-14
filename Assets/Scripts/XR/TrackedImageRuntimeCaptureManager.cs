@@ -10,6 +10,8 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
 {
     public ImageWarp imageWarp;
 
+    public GameObject imageWarpPanel;
+
     public ImageWarp imageWarpCapture;
 
     public RectTransform canvas;
@@ -52,15 +54,16 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
     void Start()
     {
 
-        //trackImageManager = gameObject.AddComponent<ARTrackedImageManager>();
-        //trackImageManager.referenceLibrary = trackImageManager.CreateRuntimeLibrary(runtimeImageLibrary);
-        //trackImageManager.maxNumberOfMovingImages = 3;
-        //trackImageManager.trackedImagePrefab = placedObject;
+        trackImageManager = gameObject.AddComponent<ARTrackedImageManager>();
+        trackImageManager.referenceLibrary = trackImageManager.CreateRuntimeLibrary(runtimeImageLibrary);
+        trackImageManager.maxNumberOfMovingImages = 3;
+        trackImageManager.trackedImagePrefab = placedObject;
 
-        //trackImageManager.enabled = true;
+        trackImageManager.enabled = true;
 
-        //trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;
+        trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;
 
+        imageWarpPanel.SetActive(false); 
 
     }
 
