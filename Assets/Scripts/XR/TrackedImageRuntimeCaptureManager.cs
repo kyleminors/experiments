@@ -72,6 +72,9 @@ public class TrackedImageRuntimeCaptureManager : MonoBehaviour
         if(rectContainer == null)
         rectContainer = GameObject.FindGameObjectWithTag("rect");
 
+        if(imageWarpCapture == null)
+        imageWarpCapture = GameObject.FindGameObjectWithTag("imageWarpCapture").GetComponent<ImageWarp>(); 
+
     }
 
     public void CaptureImageButton()
